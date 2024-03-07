@@ -48,8 +48,7 @@ public class SelectListDemoTest {
         assertTrue(shownMessage.contains(day.name()));
     }
 
-
-    public static Stream<Arguments> sendFirstLetterOfDayIntoInput() {
+    public static Stream<Arguments> sendFirstLetterOfDayIntoInput1() {
         return Stream.of(
                 Arguments.of("Su", "Sunday"), // null strings should be considered blank
                 Arguments.of("M", "Monday"),
@@ -62,7 +61,7 @@ public class SelectListDemoTest {
     }
 
     @ParameterizedTest
-    @MethodSource
+    @MethodSource("sendFirstLetterOfDayIntoInput1")
     void sendFirstLetterOfDayIntoInput(
             String FirstLetterOfDay, String expected) {
         SelectDropdown selectDropdown = new SelectDropdown(Action.driver);
