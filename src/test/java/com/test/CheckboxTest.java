@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CheckboxTest {
     static String baseUrl = "https://web.archive.org/web/20180911154259/http://www.seleniumeasy.com/test/basic-checkbox-demo.html";
 
-    private static Stream<Arguments> FourCheckBoxesTest() {
+    private static Stream<Arguments> checkBoxesTest() {
         return Stream.of(
                 Arguments.of("0000", "Check All"),
                 Arguments.of("1000", "Check All"),
@@ -43,7 +43,7 @@ public class CheckboxTest {
     }
 
     @Test
-    void SingleCheckboxTest() {
+    void singleCheckboxTest() {
         String expected = "Success - Check box is checked";
         CheckBox checkBox = new CheckBox(Action.driver);
         assertEquals(expected, checkBox.checkTheSingleBox(), "The message is not visible!!!");
@@ -52,10 +52,11 @@ public class CheckboxTest {
 
     @ParameterizedTest(name = " {index} -- {0}")
     @MethodSource()
-    void FourCheckBoxesTest(String Multi, String expected) throws InterruptedException {
+    void checkBoxesTest(String Multi, String expected) throws InterruptedException {
         CheckBox checkBox = new CheckBox(Action.driver);
         String result = checkBox.checkMultipleBox(false, Multi);
         assertEquals(expected, result,"Test with no checked upper box failed");
+        //five checkbox
         result = checkBox.checkMultipleBox(true, Multi);
         assertEquals(expected, result,"Test with checked first box failed");
     }
