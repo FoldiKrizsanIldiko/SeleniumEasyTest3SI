@@ -1,6 +1,6 @@
 package com.test;
 
-import KeywordActions.Action;
+import com.test.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,8 +22,8 @@ public class NavigationTest {
     public void Navigation(){
         String expected="Single Input Field";
         FirstPage nav = new FirstPage(Action.driver);
-        nav.getPage();
-        assertTrue(nav.verifySite().contains(expected), "Navigation failed :( ");
+        nav.openThePage();
+        assertTrue(nav.displayedPage().contains(expected), "Navigation failed :( "); //ez talán lehetne leírób
     }
 
     @AfterAll

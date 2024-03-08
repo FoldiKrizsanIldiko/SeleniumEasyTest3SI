@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.time.Duration;
-
 public class FirstPage {
     WebDriver driver;
     @FindBy(linkText = "Input Forms")
@@ -47,23 +45,23 @@ public class FirstPage {
         }
     }
 
-    public void getPage() {
+    public void openThePage() {
         clickElement(inputForms);
         clickElement(simpleFormDemo);
     }
 
-    public String verifySite() {
+    public String displayedPage() {
         return specElementOfSite.getText();
     }
 
-    public String sendMessage(String message) {
+    public String typeInMessageAndCheckDisplay(String message) {
         clearFields(singleInputField);
         singleInputField.sendKeys(message);
         showMessageButton.click();
         return showedMessage.getText();
     }
 
-    public String countSum(String firstNum, String secondNum) {
+    public String sendTwoNumbersAndCheskTheiSum(String firstNum, String secondNum) {
         clearFields(firstNumber, secondNumber);
         firstNumber.sendKeys(firstNum);
         secondNumber.sendKeys(secondNum);

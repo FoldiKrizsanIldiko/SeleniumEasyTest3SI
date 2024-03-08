@@ -1,6 +1,6 @@
 package com.test;
 
-import KeywordActions.Action;
+import com.test.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +21,7 @@ public class SingleInputTest {
     @CsvFileSource(resources = "/SingleInputSources.csv", numLinesToSkip = 1)
     void SingleInput(String input) {
         FirstPage firstPage = new FirstPage(Action.driver);
-        assertEquals(firstPage.sendMessage(input), input, "The message is not what you expected");
+        assertEquals(firstPage.typeInMessageAndCheckDisplay(input), input, "The message is not what you expected");
     }
 
     @AfterAll

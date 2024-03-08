@@ -1,6 +1,6 @@
 package com.test;
 
-import KeywordActions.Action;
+import com.test.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,11 +19,11 @@ public class RadioButtonsTest {
     @Test
     public void combinationsOfSexAndAgeGroup(){
         RadioButton radioButton=new RadioButton(Action.driver);
-       int NumS= radioButton.getNumberOfSexs();
-       int NumAgeOG= radioButton.getNumberOfAgeGroups();
-        for(int i=0;i<NumS;i++){
+       int numberOfSex= radioButton.getNumberOfSexs();
+       int numberOfAgeGroups= radioButton.getNumberOfAgeGroups();
+        for(int i=0;i<numberOfSex;i++){
            String sex= radioButton.selectSex(i);
-           for(int j=0;j<NumAgeOG;j++){
+           for(int j=0;j<numberOfAgeGroups;j++){
                 String ageG= radioButton.selectAgeGroup(j).replace("to", "-");
                 radioButton.submitChoices();
                 String message=radioButton.getDisplayedMessage();

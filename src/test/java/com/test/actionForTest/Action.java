@@ -1,4 +1,4 @@
-package KeywordActions;
+package com.test.actionForTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +20,4 @@ public class Action {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.close();
     }
-//click ang get text with String return
-
 }

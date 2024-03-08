@@ -1,6 +1,6 @@
 package com.test;
 
-import KeywordActions.Action;
+import com.test.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +21,7 @@ public class TwoInputSumTest {
     @CsvFileSource(resources = "/TwoFieldAndOutputSources.csv", numLinesToSkip = 1)
     void SingleInput(String first, String second, String expected) {
         FirstPage firstPage = new FirstPage(Action.driver);
-        assertEquals(expected, firstPage.countSum(first, second), "The sum is not what u expected");
+        assertEquals(expected, firstPage.sendTwoNumbersAndCheskTheiSum(first, second), "The sum is not what u expected");
     }
 
     @AfterAll

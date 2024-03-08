@@ -30,7 +30,7 @@ public class SelectDropdown {
         PageFactory.initElements(driver, this);
     }
 
-    public int getSizeOfDropdown() {
+    public int getNumberOfItemsInDropdown() {
         return dropdown().getOptions().size();
     }
 
@@ -44,7 +44,7 @@ public class SelectDropdown {
         return shownText.getText();
     }
 
-    public void sendDayToInput(String day){
+    public void tipeToInputField(String day){
         input.click();
         input.sendKeys(day);
         input.sendKeys(Keys.ENTER);

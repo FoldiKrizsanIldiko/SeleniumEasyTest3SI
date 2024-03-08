@@ -15,7 +15,7 @@ public class CheckBox {
     WebElement singleCheckBox;
     @FindBy(id = "txtAge")
     WebElement checkedConfirmed;
-    @FindBy(xpath = "(//div[@class='panel-body' and preceding-sibling::div[text()='Multiple Checkbox Demo']])/div")
+    @FindBy(xpath = "(//div[@class='panel-body' and preceding-sibling::div[text()='Multiple Checkbox Demo']])/div//label/input")
     List<WebElement> checkboxes;
 
     @FindBy(id = "check1")
@@ -48,9 +48,9 @@ public class CheckBox {
         if (Single) checkTheSingleBox();
         //if String send 1 than click the box
         for (int i = 0; i < checkboxes.size(); i++) {
-            unCheckBox(checkboxes.get(i).findElement(By.xpath(".//label/input")));
+            unCheckBox(checkboxes.get(i));
             if (Multi.charAt(i) == '1') {
-                checkboxes.get(i).findElement(By.xpath(".//label/input")).click();
+                checkboxes.get(i).click();
             }
         }
         return checkAllButton.getAttribute("value");
