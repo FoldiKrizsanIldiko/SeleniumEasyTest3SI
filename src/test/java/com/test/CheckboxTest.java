@@ -1,6 +1,6 @@
 package com.test;
 
-import KeywordActions.Action;
+import com.test.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CheckboxTest {
     static String baseUrl = "https://web.archive.org/web/20180911154259/http://www.seleniumeasy.com/test/basic-checkbox-demo.html";
 
-    private static Stream<Arguments> checkBoxesTest() {
+    private static Stream<Arguments> combinationForFourCheckBox() {
         return Stream.of(
                 Arguments.of("0000", "Check All"),
                 Arguments.of("1000", "Check All"),
@@ -51,14 +51,19 @@ public class CheckboxTest {
     }
 
     @ParameterizedTest(name = " {index} -- {0}")
-    @MethodSource()
-    void checkBoxesTest(String Multi, String expected) throws InterruptedException {
+    @MethodSource("combinationForFourCheckBox")
+    void checkBoxesTestWithoutSingleBoxCheck(String Multi, String expected) {
         CheckBox checkBox = new CheckBox(Action.driver);
         String result = checkBox.checkMultipleBox(false, Multi);
-        assertEquals(expected, result,"Test with no checked upper box failed");
-        //five checkbox
-        result = checkBox.checkMultipleBox(true, Multi);
-        assertEquals(expected, result,"Test with checked first box failed");
+        assertEquals(expected, result, "Test with no checked upper box failed");
+    }
+
+    @ParameterizedTest(name = " {index} -- {0}")
+    @MethodSource("combinationForFourCheckBox")
+    void checkBoxesTestWithSingleBoxCheck(String Multi, String expected) {
+        CheckBox checkBox = new CheckBox(Action.driver);
+        String result = checkBox.checkMultipleBox(true, Multi);
+        assertEquals(expected, result, "Test with checked first box failed");
     }
 
     @AfterAll
