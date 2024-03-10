@@ -36,10 +36,10 @@ public class FirstPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickElement(WebElement element) {
+    private void clickElement(WebElement element) {
         element.click();
     }
-    public void clearFields(WebElement... element){
+    private void clearFields(WebElement... element){
         for (WebElement e: element){
             e.clear();
         }

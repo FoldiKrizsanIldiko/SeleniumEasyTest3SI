@@ -26,17 +26,7 @@ public class RadioButton {
         PageFactory.initElements(driver, this);
     }
 
-    public void getSexLabels(){
-        for(WebElement label:sexLabels){
-            System.out.println(label.getText());
-        }
-
-        for(WebElement label:ageLabels){
-            System.out.println(label.getText());
-        }
-    }
-
-    public int getNumberOfSexs(){
+    public int getNumberOfSex(){
         return sexLabels.size();
     }
     public int getNumberOfAgeGroups(){

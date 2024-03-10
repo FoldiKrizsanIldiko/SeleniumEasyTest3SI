@@ -19,7 +19,7 @@ public class RadioButtonsTest {
     @Test
     public void combinationsOfSexAndAgeGroup(){
         RadioButton radioButton=new RadioButton(Action.driver);
-       int numberOfSex= radioButton.getNumberOfSexs();
+       int numberOfSex= radioButton.getNumberOfSex();
        int numberOfAgeGroups= radioButton.getNumberOfAgeGroups();
         for(int i=0;i<numberOfSex;i++){
            String sex= radioButton.selectSex(i);

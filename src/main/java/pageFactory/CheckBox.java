@@ -55,5 +55,4 @@ public class CheckBox {
         }
         return checkAllButton.getAttribute("value");
     }
-
 }

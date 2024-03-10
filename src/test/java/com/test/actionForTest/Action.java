@@ -17,7 +17,6 @@ public class Action {
         return driver;
     }
     public static void tearDown(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.close();
     }
 }
