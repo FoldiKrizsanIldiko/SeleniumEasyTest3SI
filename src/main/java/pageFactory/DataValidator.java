@@ -39,12 +39,16 @@ public class DataValidator {
     }
 
     public void skipThePopUp() {
-        popupAgree.click();
+
+       if(popupAgree.isDisplayed()) popupAgree.click();
     }
 
     public String sendDataAndGetTheDay(String d, String m, String y) {
+        day.clear();
         day.sendKeys(d);
+        month.clear();
         month.sendKeys(m);
+        year.clear();
         year.sendKeys(y);
         showButton.click();
         return dayOfDate.getText();
