@@ -1,17 +1,18 @@
 package com.codecool.fkildiko.seleniumTest.test.pageFactoryTests;
 
+import com.codecool.fkildiko.seleniumTest.pageFactory.SelectDropdown;
+import com.codecool.fkildiko.seleniumTest.test.pageFactoryTests.Enum.NameOfDay;
 import com.codecool.fkildiko.seleniumTest.test.pageFactoryTests.actionForTest.Action;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import com.codecool.fkildiko.seleniumTest.pageFactory.SelectDropdown;
-import Enum.NameOfDay;
 
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SelectListDemoTest {
