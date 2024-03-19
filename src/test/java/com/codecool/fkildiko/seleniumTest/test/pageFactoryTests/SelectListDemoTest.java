@@ -38,7 +38,7 @@ public class SelectListDemoTest {
 
     @Test
     public void selectFromDropdownTwice() {
-        SelectDropdown selectDropdown = new SelectDropdown(Action.driver);
+        SelectDropdown selectDropdown = new SelectDropdown(Action.getDriver());
         for (int twice = 0; twice < 2; twice++) {
             for (int i = 1; i < selectDropdown.getNumberOfItemsInDropdown(); i++) {
                 String selectedDay = selectDropdown.selectFromDropdown(i);
@@ -52,7 +52,7 @@ public class SelectListDemoTest {
     @ParameterizedTest
     @EnumSource(value = NameOfDay.class)
     void sendNamesOfDayToInput(NameOfDay day) {
-        SelectDropdown selectDropdown = new SelectDropdown(Action.driver);
+        SelectDropdown selectDropdown = new SelectDropdown(Action.getDriver());
         selectDropdown.tipeToInputField(day.name());
         String shownMessage = selectDropdown.getShownMessage();
         assertTrue(shownMessage.contains(day.name()));
@@ -61,7 +61,7 @@ public class SelectListDemoTest {
     @ParameterizedTest
     @MethodSource("sendFirstLetterOfDayIntoInput1")
     void sendFirstLetterOfDayIntoInput(String FirstLetterOfDay, String expected) {
-        SelectDropdown selectDropdown = new SelectDropdown(Action.driver);
+        SelectDropdown selectDropdown = new SelectDropdown(Action.getDriver());
         selectDropdown.tipeToInputField(FirstLetterOfDay);
         String shownMessage = selectDropdown.getShownMessage();
         assertTrue(shownMessage.contains(expected));

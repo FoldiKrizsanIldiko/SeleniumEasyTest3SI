@@ -54,7 +54,7 @@ public class DataValidatorTest {
     @BeforeAll
     public static void serUp() {
         Action.setUp(baseUrl);
-        dataValidator = new DataValidator(Action.driver);
+        dataValidator = new DataValidator(Action.getDriver());
         dataValidator.skipThePopUp();
     }
 

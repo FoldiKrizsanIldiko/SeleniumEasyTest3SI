@@ -21,7 +21,7 @@ public class NavigationTest {
     @Test
     public void Navigation(){
         String expected="Single Input Field";
-        FirstPage nav = new FirstPage(Action.driver);
+        FirstPage nav = new FirstPage(Action.getDriver());
         nav.openThePage();
         assertTrue(nav.displayedPage().contains(expected), "Navigation failed :( "); //ez talán lehetne leírób
     }

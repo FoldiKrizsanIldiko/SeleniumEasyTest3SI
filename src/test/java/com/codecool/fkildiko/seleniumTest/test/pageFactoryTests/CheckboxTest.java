@@ -45,7 +45,7 @@ public class CheckboxTest {
     @Test
     void singleCheckboxTest() {
         String expected = "Success - Check box is checked";
-        CheckBox checkBox = new CheckBox(Action.driver);
+        CheckBox checkBox = new CheckBox(Action.getDriver());
         assertEquals(expected, checkBox.checkTheSingleBox(), "The message is not visible!!!");
         checkBox.unCheckSingleBox();
     }
@@ -53,7 +53,7 @@ public class CheckboxTest {
     @ParameterizedTest(name = " {index} -- {0}")
     @MethodSource("combinationForFourCheckBox")
     void checkBoxesTestWithoutSingleBoxCheck(String Multi, String expected) {
-        CheckBox checkBox = new CheckBox(Action.driver);
+        CheckBox checkBox = new CheckBox(Action.getDriver());
         String result = checkBox.checkMultipleBox(false, Multi);
         assertEquals(expected, result, "Test with no checked upper box failed");
     }
@@ -61,7 +61,7 @@ public class CheckboxTest {
     @ParameterizedTest(name = " {index} -- {0}")
     @MethodSource("combinationForFourCheckBox")
     void checkBoxesTestWithSingleBoxCheck(String Multi, String expected) {
-        CheckBox checkBox = new CheckBox(Action.driver);
+        CheckBox checkBox = new CheckBox(Action.getDriver());
         String result = checkBox.checkMultipleBox(true, Multi);
         assertEquals(expected, result, "Test with checked first box failed");
     }
