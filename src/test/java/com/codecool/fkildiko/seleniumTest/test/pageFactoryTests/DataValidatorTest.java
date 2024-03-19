@@ -1,6 +1,6 @@
 package com.codecool.fkildiko.seleniumTest.test.pageFactoryTests;
 
-import com.codecool.fkildiko.seleniumTest.test.pageFactoryTests.actionForTest.Action;
+import com.codecool.fkildiko.seleniumTest.pageFactory.DataValidator;
 import org.apache.poi.ss.usermodel.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import com.codecool.fkildiko.seleniumTest.pageFactory.DataValidator;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,11 +20,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DataValidatorTest {
     private static final String baseUrl = "https://www.timeanddate.com/date/weekday.html";
- private static DataValidator dataValidator;
+    private static final WebDriver chromeDriver = new ChromeDriver();
+    private static DataValidator dataValidator;
+
     private static Stream<Arguments> dataForTest() {
         //read data from excel file
         System.out.println(System.getProperty("user.dir"));
-        String excelFullPath =  "src\\test\\java\\com\\codecool\\fkildiko\\seleniumTest\\test\\pageFactoryTests\\testResurces\\DataForTest.xlsx";
+        String excelFullPath = "src\\test\\resources\\DataForTest.xlsx";
         String sheetName = "Munkalap2";
         Stream<Arguments> returnStream = Stream.empty();
         DataFormatter myDataFormatter = new DataFormatter();
@@ -54,8 +57,9 @@ public class DataValidatorTest {
 
     @BeforeAll
     public static void serUp() {
-        Action.setUp(baseUrl);
-        dataValidator = new DataValidator(Action.getDriver());
+        chromeDriver.manage().window().maximize();
+        chromeDriver.get(baseUrl);
+        dataValidator = new DataValidator(chromeDriver);
         dataValidator.skipThePopUp();
     }
 
@@ -79,18 +83,18 @@ public class DataValidatorTest {
         assertEquals(expected, result);
     }
 
-    @ParameterizedTest(name="{index} -- {0}-{1}-{2}")
+    @ParameterizedTest(name = "{index} -- {0}-{1}-{2}")
     @MethodSource("dataForTest")
-    void isDataSaturday(String d,String m, String y, String expected){
-        System.out.println(d+"   "+m+"    "+y);
+    void isDataSaturday(String d, String m, String y, String expected) {
+        System.out.println(d + "   " + m + "    " + y);
         String result = dataValidator.sendDataAndGetTheDay(d, m, y);
-        String message= "The given day is not Saturday, but " + result;
+        String message = "The given day is not Saturday, but " + result;
         assertEquals(expected, result, message);
     }
 
     @AfterAll
     public static void tearDown() {
-        Action.tearDown();
+        chromeDriver.close();
     }
 
 }

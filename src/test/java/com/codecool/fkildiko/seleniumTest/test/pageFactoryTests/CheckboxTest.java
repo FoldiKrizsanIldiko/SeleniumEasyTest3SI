@@ -1,13 +1,14 @@
 package com.codecool.fkildiko.seleniumTest.test.pageFactoryTests;
 
-import com.codecool.fkildiko.seleniumTest.test.pageFactoryTests.actionForTest.Action;
+import com.codecool.fkildiko.seleniumTest.pageFactory.CheckBox;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import com.codecool.fkildiko.seleniumTest.pageFactory.CheckBox;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.stream.Stream;
 
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CheckboxTest {
     static String baseUrl = "https://web.archive.org/web/20180911154259/http://www.seleniumeasy.com/test/basic-checkbox-demo.html";
+    private static final WebDriver chromeDriver = new ChromeDriver();
 
     private static Stream<Arguments> combinationForFourCheckBox() {
         return Stream.of(
@@ -39,13 +41,14 @@ public class CheckboxTest {
 
     @BeforeAll
     public static void setUp() {
-        Action.setUp(baseUrl);
+        chromeDriver.manage().window().maximize();
+        chromeDriver.get(baseUrl);
     }
 
     @Test
     void singleCheckboxTest() {
         String expected = "Success - Check box is checked";
-        CheckBox checkBox = new CheckBox(Action.getDriver());
+        CheckBox checkBox = new CheckBox(chromeDriver);
         assertEquals(expected, checkBox.checkTheSingleBox(), "The message is not visible!!!");
         checkBox.unCheckSingleBox();
     }
@@ -53,7 +56,7 @@ public class CheckboxTest {
     @ParameterizedTest(name = " {index} -- {0}")
     @MethodSource("combinationForFourCheckBox")
     void checkBoxesTestWithoutSingleBoxCheck(String Multi, String expected) {
-        CheckBox checkBox = new CheckBox(Action.getDriver());
+        CheckBox checkBox = new CheckBox(chromeDriver);
         String result = checkBox.checkMultipleBox(false, Multi);
         assertEquals(expected, result, "Test with no checked upper box failed");
     }
@@ -61,13 +64,13 @@ public class CheckboxTest {
     @ParameterizedTest(name = " {index} -- {0}")
     @MethodSource("combinationForFourCheckBox")
     void checkBoxesTestWithSingleBoxCheck(String Multi, String expected) {
-        CheckBox checkBox = new CheckBox(Action.getDriver());
+        CheckBox checkBox = new CheckBox(chromeDriver);
         String result = checkBox.checkMultipleBox(true, Multi);
         assertEquals(expected, result, "Test with checked first box failed");
     }
 
     @AfterAll
     public static void tearDown() {
-        Action.tearDown();
+        chromeDriver.close();
     }
 }
