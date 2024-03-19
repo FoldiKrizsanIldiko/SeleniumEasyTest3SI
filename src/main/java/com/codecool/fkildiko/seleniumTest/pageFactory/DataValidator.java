@@ -1,4 +1,4 @@
-package pageFactory;
+package com.codecool.fkildiko.seleniumTest.pageFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -40,7 +40,7 @@ public class DataValidator {
 
     public void skipThePopUp() {
 
-       if(popupAgree.isDisplayed()) popupAgree.click();
+        if (popupAgree.isDisplayed()) popupAgree.click();
     }
 
     public String sendDataAndGetTheDay(String d, String m, String y) {
@@ -56,15 +56,23 @@ public class DataValidator {
 
     public String chooseDataFromTable(String d, String m, String y) {
         day.click();
-        daysFromTable.stream().filter(elem -> Objects.equals(elem.getText(), d)).findFirst().ifPresent(element ->{element.click();
-            System.out.println("Found d");} );//.ifPresent(WebElement::click);
+        daysFromTable.stream().filter(elem -> Objects.equals(elem.getText(), d)).findFirst().ifPresent(element -> {
+            element.click();
+            System.out.println("Found d");
+        });//.ifPresent(WebElement::click);
         month.click();
-        dataFromTable.stream().filter(elem->elem.getText().contains(m)).findFirst().ifPresent(element -> {element.click();
-            System.out.println("Found m");});//.ifPresent(WebElement::click);
+        dataFromTable.stream().filter(elem -> elem.getText().contains(m)).findFirst().ifPresent(element -> {
+            element.click();
+            System.out.println("Found m");
+        });//.ifPresent(WebElement::click);
         year.click();
-        dataFromTable.stream().filter(elem->Objects.equals(elem.getText(), y)).findFirst().ifPresentOrElse(element -> {element.click();
-            System.out.println("found y");},()->{year.sendKeys(y);
-            System.out.println("There is no specified year in the table; I have entered it into the input.");});//.ifPresent(WebElement::click);
+        dataFromTable.stream().filter(elem -> Objects.equals(elem.getText(), y)).findFirst().ifPresentOrElse(element -> {
+            element.click();
+            System.out.println("found y");
+        }, () -> {
+            year.sendKeys(y);
+            System.out.println("There is no specified year in the table; I have entered it into the input.");
+        });//.ifPresent(WebElement::click);
         showButton.click();
         return dayOfDate.getText();
     }

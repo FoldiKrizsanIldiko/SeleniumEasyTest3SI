@@ -1,4 +1,4 @@
-package pageFactory;
+package com.codecool.fkildiko.seleniumTest.pageFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,7 +61,7 @@ public class FirstPage {
         return showedMessage.getText();
     }
 
-    public String sendTwoNumbersAndCheskTheiSum(String firstNum, String secondNum) {
+    public String sendTwoNumbersAndCheckTheirSum(String firstNum, String secondNum) {
         clearFields(firstNumber, secondNumber);
         firstNumber.sendKeys(firstNum);
         secondNumber.sendKeys(secondNum);

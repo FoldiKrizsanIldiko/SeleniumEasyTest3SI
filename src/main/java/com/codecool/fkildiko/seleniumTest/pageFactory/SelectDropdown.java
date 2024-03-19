@@ -1,4 +1,4 @@
-package pageFactory;
+package com.codecool.fkildiko.seleniumTest.pageFactory;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

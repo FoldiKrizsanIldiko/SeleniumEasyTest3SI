@@ -1,10 +1,10 @@
-package com.test;
+package com.codecool.fkildiko.seleniumTest.test.pageFactoryTests;
 
-import com.test.actionForTest.Action;
+import com.codecool.fkildiko.seleniumTest.test.pageFactoryTests.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pageFactory.FirstPage;
+import com.codecool.fkildiko.seleniumTest.pageFactory.FirstPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

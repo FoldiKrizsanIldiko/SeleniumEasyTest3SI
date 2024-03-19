@@ -1,13 +1,13 @@
-package com.test;
+package com.codecool.fkildiko.seleniumTest.test.pageFactoryTests;
 
-import com.test.actionForTest.Action;
+import com.codecool.fkildiko.seleniumTest.test.pageFactoryTests.actionForTest.Action;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pageFactory.CheckBox;
+import com.codecool.fkildiko.seleniumTest.pageFactory.CheckBox;
 
 import java.util.stream.Stream;
 
