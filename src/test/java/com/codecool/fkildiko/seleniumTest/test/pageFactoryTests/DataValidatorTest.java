@@ -22,7 +22,8 @@ public class DataValidatorTest {
  private static DataValidator dataValidator;
     private static Stream<Arguments> dataForTest() {
         //read data from excel file
-        String excelFullPath = "C:\\Users\\fkild\\Codecool\\TESTbranch\\3_SI\\SeleniumEasyTest\\src\\main\\resources\\DataForTest.xlsx";
+        System.out.println(System.getProperty("user.dir"));
+        String excelFullPath =  "src\\test\\java\\com\\codecool\\fkildiko\\seleniumTest\\test\\pageFactoryTests\\testResurces\\DataForTest.xlsx";
         String sheetName = "Munkalap2";
         Stream<Arguments> returnStream = Stream.empty();
         DataFormatter myDataFormatter = new DataFormatter();

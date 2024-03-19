@@ -18,7 +18,7 @@ public class SingleInputTest {
     }
 
     @ParameterizedTest(name = "{index} -- {0}")
-    @CsvFileSource(resources = "/com/codecool/fkildiko/seleniumTest/test/pageFactoryTests/testResurces/SingleInputSources.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/SingleInputSources.csv", numLinesToSkip = 1)
     void SingleInput(String input) {
         FirstPage firstPage = new FirstPage(Action.getDriver());
         assertEquals(firstPage.typeInMessageAndCheckDisplay(input), input, "The message is not what you expected");

@@ -18,7 +18,7 @@ public class TwoInputSumTest {
     }
 
     @ParameterizedTest(name = "{index} -- {0} -- {1}")
-    @CsvFileSource(resources = "/com/codecool/fkildiko/seleniumTest/test/pageFactoryTests/testResurces/TwoFieldAndOutputSources.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/TwoFieldAndOutputSources.csv", numLinesToSkip = 1)
     void SingleInput(String first, String second, String expected) {
         FirstPage firstPage = new FirstPage(Action.getDriver());
         assertEquals(expected, firstPage.sendTwoNumbersAndCheckTheirSum(first, second), "The sum is not what u expected");
