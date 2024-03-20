@@ -40,7 +40,28 @@ Some text needed here
 ## About The Project
 
 <p>
-need some text here
+This project is part of the testing curriculum at Codecool school and provides a step-by-step guide on writing tests correctly. 
+Since the website has been discontinued, it must be accessed from the webArchive, which can slow down the process.
+Due to the webArchive, one of the pages intended for testing was unavailable, so another page is used in the project.
+The project is developed using the IntelliJ platform and leverages Selenium for browser automation.
+
+We worked in two sprints. In the first sprint, we formulated, based on the provided user stories, the elements to be used in
+the tests and how to validate the success or failure of the tests. 
+Initially, I wrote the tests in a single file, which could be run together or separately. 
+This file can be found in the early commits at the path: src/test/java/com/test/SeleniumEasyTest.java. 
+Later, this file was deleted because in the second sprint, the tests were rewritten in a more transparent and reusable manner, 
+following the PageFactory methodology.
+
+Within the pageFactory folder, 5 page elements are enumerated along with their associated methods. 
+Method names are crafted following the Keyword Driven Testing approach to ensure clarity for non-expert users.
+The project includes several Data Driven Tests, with some of them stored in the resources folder as .csv files. 
+Additionally, the Data Validator Test sources its input data from an Excel file.
+The Select List Demo Test showcases a Parameterized Test utilizing Enum. 
+The most commonly used assertions are demonstrated in the exercises. Importantly, the tests are designed to be fully independent of each other, 
+allowing them to be executed individually or as a suite.
+
+Each test class initializes its own browser instance and gracefully closes it upon completion. 
+Any dynamically created elements during testing are properly disposed of once the test concludes.
 </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -63,13 +84,27 @@ Please follow next steps to run the tests.
 ### Installation
 
 1. Clone the repo
-   ```sh
+```sh
    git clone https://github.com/FoldiKrizsanIldiko/SeleniumEasyTest3SI.git
    ```
+1. install maven
+2. download it from here : https://maven.apache.org/download.cgi
+3. follow the instructions from this page: https://maven.apache.org/install.html
+4. for setting the environment variable check this: 
+, with simple pressing Run tab
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
-
+5. run the tests with
+```
+mvn test
+```
+6. or run tests one by one by declaring specify test
+```
+mvn test -Dtest=com/codecool/fkildiko/seleniumTest/test/pageFactoryTests/NavigationTest<change this with another test class>
+```
+7. if you have installed IntelliJ you can run tests easier
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
