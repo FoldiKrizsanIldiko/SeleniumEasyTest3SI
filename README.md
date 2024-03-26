@@ -90,21 +90,23 @@ Please follow next steps to run the tests.
 1. install maven
 2. download it from here : https://maven.apache.org/download.cgi
 3. follow the instructions from this page: https://maven.apache.org/install.html
-4. for setting the environment variable check this: 
-, with simple pressing Run tab
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
-5. run the tests with
+
+
+1. If you have installed the IntelliJ you can simple run the tests with Run
+2. run the tests with
 ```
 mvn test
 ```
-6. or run tests one by one by declaring specify test
+3. or run tests one by one by declaring specify test
 ```
 mvn test -Dtest=com/codecool/fkildiko/seleniumTest/test/pageFactoryTests/NavigationTest<change this with another test class>
 ```
-7. if you have installed IntelliJ you can run tests easier
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
